@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ForeignersInBydgoszcz</string>
+    <string name="logo_description">Logo of Foreigners in Bydgoszcz</string>
+    <string name="visit">VISIT</string>
+    <string name="my_tasks">MY TASKS</string>
+    <string name="formalities">FORMALITIES</string>
+    <string name="picture_of_interesting_place">Picture of interesting place</string>
+    <string name="name_of_the_place">Name of the place</string>
+    <string name="place_description">This is a short but valuable place description. We can add even more text here to see how this text will apeat on our card.</string>
+    <string name="see_on_map">see on map</string>
+    <string name="pin_on_map_logo">Pin on map logo</string>
+</resources>
