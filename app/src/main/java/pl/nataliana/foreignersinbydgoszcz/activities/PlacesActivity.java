@@ -46,7 +46,7 @@ public class PlacesActivity extends AppCompatActivity {
         for (int i = 0; i < PlacesData.nameArray.length; i++) {
             listOfPlaces.add(new Place(
                     PlacesData.nameArray[i],
-                    PlacesData.versionArray[i],
+                    PlacesData.descriptionArray[i],
                     PlacesData.id_[i],
                     PlacesData.drawableArray[i]
             ));
@@ -69,47 +69,47 @@ public class PlacesActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            addToFavorites(v);
+//            addToFavorites(v);
         }
 
-        private void addToFavorites(View v) {
-            int selectedItemPosition = recyclerView.getChildPosition(v);
-            RecyclerView.ViewHolder viewHolder
-                    = recyclerView.findViewHolderForPosition(selectedItemPosition);
-            TextView textViewName
-                    = (TextView) viewHolder.itemView.findViewById(R.id.textViewName);
-            String selectedName = (String) textViewName.getText();
-            int selectedItemId = -1;
-            for (int i = 0; i < PlacesData.nameArray.length; i++) {
-                if (selectedName.equals(PlacesData.nameArray[i])) {
-                    selectedItemId = PlacesData.id_[i];
-                }
-            }
-            removedItems.add(selectedItemId);
-            listOfPlaces.remove(selectedItemPosition);
-            adapter.notifyItemRemoved(selectedItemPosition);
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        super.onOptionsItemSelected(item);
-        if (item.getItemId() == R.id.add_item) {
-            //check if any items to add
-            if (removedItems.size() != 0) {
-                addRemovedItemToList();
-            } else {
-                Toast.makeText(this, "Nothing to add", Toast.LENGTH_SHORT).show();
-            }
-        }
-        return true;
+//        private void addToFavorites(View v) {
+//            int selectedItemPosition = recyclerView.getChildPosition(v);
+//            RecyclerView.ViewHolder viewHolder
+//                    = recyclerView.findViewHolderForPosition(selectedItemPosition);
+//            TextView textViewName
+//                    = (TextView) viewHolder.itemView.findViewById(R.id.textViewName);
+//            String selectedName = (String) textViewName.getText();
+//            int selectedItemId = -1;
+//            for (int i = 0; i < PlacesData.nameArray.length; i++) {
+//                if (selectedName.equals(PlacesData.nameArray[i])) {
+//                    selectedItemId = PlacesData.id_[i];
+//                }
+//            }
+//            removedItems.add(selectedItemId);
+//            listOfPlaces.remove(selectedItemPosition);
+//            adapter.notifyItemRemoved(selectedItemPosition);
+//        }
+//    }
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        super.onCreateOptionsMenu(menu);
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        super.onOptionsItemSelected(item);
+//        if (item.getItemId() == R.id.add_item) {
+//            //check if any items to add
+//            if (removedItems.size() != 0) {
+//                addRemovedItemToList();
+//            } else {
+//                Toast.makeText(this, "Nothing to add", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//        return true;
     }
 
 }

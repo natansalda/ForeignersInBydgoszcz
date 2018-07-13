@@ -16,53 +16,52 @@ import static pl.nataliana.foreignersinbydgoszcz.activities.PlacesActivity.myOnC
 
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.MyViewHolder> {
 
-        private ArrayList<Place> dataSet;
+    private ArrayList<Place> dataSet;
 
-        public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-            TextView textViewName;
-            TextView textViewVersion;
-            ImageView imageViewIcon;
+        TextView textViewName;
+        TextView textViewVersion;
+        ImageView imageViewIcon;
 
-            public MyViewHolder(View itemView) {
-                super(itemView);
-                this.textViewName = (TextView) itemView.findViewById(R.id.textViewName);
-                this.textViewVersion = (TextView) itemView.findViewById(R.id.textViewVersion);
-                this.imageViewIcon = (ImageView) itemView.findViewById(R.id.imageView);
-            }
+        public MyViewHolder(View itemView) {
+            super(itemView);
+            this.textViewName = (TextView) itemView.findViewById(R.id.place_name_txt);
+            this.textViewVersion = (TextView) itemView.findViewById(R.id.place_description_txt);
+            this.imageViewIcon = (ImageView) itemView.findViewById(R.id.imageView);
         }
+    }
 
-        public PlaceAdapter(ArrayList<Place> data) {
-            this.dataSet = data;
-        }
+    public PlaceAdapter(ArrayList<Place> data) {
+        this.dataSet = data;
+    }
 
-        @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent,
-                                               int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.cards_layout, parent, false);
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent,
+                                           int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.cards_layout, parent, false);
 
-            view.setOnClickListener(myOnClickListener);
+        view.setOnClickListener(myOnClickListener);
 
-            MyViewHolder myViewHolder = new MyViewHolder(view);
-            return myViewHolder;
-        }
+        MyViewHolder myViewHolder = new MyViewHolder(view);
+        return myViewHolder;
+    }
 
-        @Override
-        public void onBindViewHolder(final MyViewHolder holder, final int listPosition) {
+    @Override
+    public void onBindViewHolder(final MyViewHolder holder, final int listPosition) {
 
-            TextView textViewName = holder.textViewName;
-            TextView textViewVersion = holder.textViewVersion;
-            ImageView imageView = holder.imageViewIcon;
+        TextView textViewName = holder.textViewName;
+        TextView textViewVersion = holder.textViewVersion;
+        ImageView imageView = holder.imageViewIcon;
 
-            textViewName.setText(dataSet.get(listPosition).getName());
-            textViewVersion.setText(dataSet.get(listPosition).getVersion());
-            imageView.setImageResource(dataSet.get(listPosition).getImage());
-        }
+        textViewName.setText(dataSet.get(listPosition).getName());
+        textViewVersion.setText(dataSet.get(listPosition).getDescription());
+        imageView.setImageResource(dataSet.get(listPosition).getImage());
+    }
 
-        @Override
-        public int getItemCount() {
-            return dataSet.size();
-        }
+    @Override
+    public int getItemCount() {
+        return dataSet.size();
     }
 }
