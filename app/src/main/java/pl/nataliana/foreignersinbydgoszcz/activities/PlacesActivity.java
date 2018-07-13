@@ -15,25 +15,27 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
+import pl.nataliana.foreignersinbydgoszcz.adapters.PlaceAdapter;
+import pl.nataliana.foreignersinbydgoszcz.data.PlacesData;
 import pl.nataliana.foreignersinbydgoszcz.model.Place;
 
-public class PlacesActivity extends AppCompatActivity{
+public class PlacesActivity extends AppCompatActivity {
 
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
     private static ArrayList<Place> listOfPlaces;
-    static View.OnClickListener myOnClickListener;
+    public static View.OnClickListener myOnClickListener;
     private static ArrayList<Integer> removedItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_places);
 
         myOnClickListener = new MyOnClickListener(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        recyclerView = findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);
@@ -41,18 +43,18 @@ public class PlacesActivity extends AppCompatActivity{
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         listOfPlaces = new ArrayList<Place>();
-        for (int i = 0; i < MyData.nameArray.length; i++) {
+        for (int i = 0; i < PlacesData.nameArray.length; i++) {
             listOfPlaces.add(new Place(
-                    MyData.nameArray[i],
-                    MyData.versionArray[i],
-                    MyData.id_[i],
-                    MyData.drawableArray[i]
+                    PlacesData.nameArray[i],
+                    PlacesData.versionArray[i],
+                    PlacesData.id_[i],
+                    PlacesData.drawableArray[i]
             ));
         }
 
         removedItems = new ArrayList<Integer>();
 
-        adapter = new CustomAdapter(listOfPlaces);
+        adapter = new PlaceAdapter(listOfPlaces);
         recyclerView.setAdapter(adapter);
     }
 
@@ -67,10 +69,10 @@ public class PlacesActivity extends AppCompatActivity{
 
         @Override
         public void onClick(View v) {
-            removeItem(v);
+            addToFavorites(v);
         }
 
-        private void removeItem(View v) {
+        private void addToFavorites(View v) {
             int selectedItemPosition = recyclerView.getChildPosition(v);
             RecyclerView.ViewHolder viewHolder
                     = recyclerView.findViewHolderForPosition(selectedItemPosition);
@@ -78,9 +80,9 @@ public class PlacesActivity extends AppCompatActivity{
                     = (TextView) viewHolder.itemView.findViewById(R.id.textViewName);
             String selectedName = (String) textViewName.getText();
             int selectedItemId = -1;
-            for (int i = 0; i < MyData.nameArray.length; i++) {
-                if (selectedName.equals(MyData.nameArray[i])) {
-                    selectedItemId = MyData.id_[i];
+            for (int i = 0; i < PlacesData.nameArray.length; i++) {
+                if (selectedName.equals(PlacesData.nameArray[i])) {
+                    selectedItemId = PlacesData.id_[i];
                 }
             }
             removedItems.add(selectedItemId);
@@ -108,18 +110,6 @@ public class PlacesActivity extends AppCompatActivity{
             }
         }
         return true;
-    }
-
-    private void addRemovedItemToList() {
-        int addItemAtListPosition = 3;
-        listOfPlaces.add(addItemAtListPosition, new Place(
-                MyData.nameArray[removedItems.get(0)],
-                MyData.versionArray[removedItems.get(0)],
-                MyData.id_[removedItems.get(0)],
-                MyData.drawableArray[removedItems.get(0)]
-        ));
-        adapter.notifyItemInserted(addItemAtListPosition);
-        removedItems.remove(0);
     }
 
 }
