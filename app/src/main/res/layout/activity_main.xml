@@ -23,7 +23,9 @@
 
         <Button
             android:id="@+id/visit_btn"
+            style="@style/main_button"
             android:background="@drawable/buttonshape"
+            android:onClick="seePlaces"
             android:text="@string/visit"
             android:typeface="monospace"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -31,28 +33,27 @@
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.032"
-            style="@style/main_button" />
+            app:layout_constraintVertical_bias="0.032" />
 
         <Button
             android:id="@+id/tasks_btn"
+            style="@style/main_button"
             android:background="@drawable/buttonshapeyellow"
             android:text="@string/my_tasks"
             app:layout_constraintBottom_toTopOf="@+id/formalities_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/visit_btn"
-            style="@style/main_button" />
+            app:layout_constraintTop_toBottomOf="@+id/visit_btn" />
 
         <Button
             android:id="@+id/formalities_btn"
+            style="@style/main_button"
             android:text="@string/formalities"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tasks_btn"
-            app:layout_constraintVertical_bias="0.018"
-            style="@style/main_button" />
+            app:layout_constraintVertical_bias="0.018" />
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>
