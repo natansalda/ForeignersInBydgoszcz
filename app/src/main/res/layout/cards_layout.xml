@@ -15,8 +15,8 @@
         android:layout_height="wrap_content"
         android:elevation="8dp"
         card_view:cardBackgroundColor="@color/colorIcons"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="5dp"
+        card_view:cardCornerRadius="15dp"
+        card_view:cardElevation="10dp"
         card_view:cardUseCompatPadding="true">
 
         <LinearLayout
@@ -67,10 +67,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_margin="@dimen/standard_padding"
-                    android:layout_toStartOf="@id/pin_img"
+                    android:layout_centerVertical="true"
                     android:fontFamily="sans-serif"
+                    android:padding="@dimen/standard_padding"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold"
                     tools:text="3 Maja 3/4" />
@@ -78,24 +77,25 @@
                 <ImageView
                     android:id="@+id/pin_img"
                     android:layout_width="25dp"
-                    android:layout_height="35dp"
+                    android:layout_height="41dp"
                     android:layout_alignParentTop="true"
-                    android:layout_marginEnd="@dimen/standard_padding"
                     android:layout_toStartOf="@+id/see_on_map_txt"
                     android:contentDescription="@string/pin_on_map_logo"
                     android:src="@drawable/location_map_pin_red5" />
 
-                <TextView
+                <Button
                     android:id="@+id/see_on_map_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:layout_margin="@dimen/standard_padding"
-                    android:fontFamily="sans-serif"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryDark"
                     android:text="@string/see_on_map"
+                    android:fontFamily="sans-serif"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:theme="@style/PrimaryFlatButton"/>
             </RelativeLayout>
 
         </LinearLayout>
