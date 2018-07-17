@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
@@ -21,16 +23,16 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.MyViewHolder
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewName;
-        TextView textViewVersion;
-        ImageView imageViewIcon;
-        TextView textAddress;
+        TextView textViewDescription;
+        ImageView imageViewPlace;
+        TextView textViewAddress;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             this.textViewName = itemView.findViewById(R.id.place_name_txt);
-            this.textViewVersion = itemView.findViewById(R.id.place_description_txt);
-            this.imageViewIcon = itemView.findViewById(R.id.imageView);
-            this.textAddress = itemView.findViewById(R.id.place_address_txt);
+            this.textViewDescription = itemView.findViewById(R.id.place_description_txt);
+            this.imageViewPlace = itemView.findViewById(R.id.imageView);
+            this.textViewAddress = itemView.findViewById(R.id.place_address_txt);
         }
     }
 
@@ -54,12 +56,17 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.MyViewHolder
     public void onBindViewHolder(final MyViewHolder holder, final int listPosition) {
 
         TextView textViewName = holder.textViewName;
-        TextView textViewVersion = holder.textViewVersion;
-        ImageView imageView = holder.imageViewIcon;
+        TextView textViewVersion = holder.textViewDescription;
+        ImageView imageViewPlace = holder.imageViewPlace;
+        TextView textViewAddress = holder.textViewAddress;
 
         textViewName.setText(dataSet.get(listPosition).getName());
         textViewVersion.setText(dataSet.get(listPosition).getDescription());
-        imageView.setImageResource(dataSet.get(listPosition).getImage());
+        Picasso.get().load(R.drawable.placeholder).placeholder(R.drawable.placeholder)
+                .resize(150, 50)
+                .centerCrop()
+                .into(imageViewPlace);
+        textViewAddress.setText(dataSet.get(listPosition).getAddress());
     }
 
     @Override

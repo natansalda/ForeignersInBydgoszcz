@@ -2,18 +2,22 @@ package pl.nataliana.foreignersinbydgoszcz.model;
 
 public class Place {
 
+    private long id;
     public String name;
     public String description;
-    public int id_;
     public int image;
     public String address;
 
-    public Place(String name, String description, int id_, int image, String address) {
+    public Place(long id, String name, String description, int image, String address) {
+        this.id = id;
         this.name = name;
         this.description = description;
-        this.id_ = id_;
         this.image = image;
         this.address = address;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {
@@ -26,10 +30,6 @@ public class Place {
 
     public int getImage() {
         return image;
-    }
-
-    public int getId() {
-        return id_;
     }
 
     public String getAddress() {

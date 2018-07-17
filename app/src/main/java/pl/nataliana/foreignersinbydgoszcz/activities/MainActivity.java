@@ -15,8 +15,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    // Opens PlacesActivity
     public void seePlaces(View view) {
         Intent c = new Intent(MainActivity.this, PlacesActivity.class);
+        startActivity(c);
+    }
+
+    // Opens TasksActivity
+    public void seeTasks(View view) {
+        Intent c = new Intent(MainActivity.this, TasksActivity.class);
+        startActivity(c);
+    }
+
+    // Opens FormalitiesActivity
+    public void seeFormalities(View view) {
+        Intent c = new Intent(MainActivity.this, FormalitiesActivity.class);
         startActivity(c);
     }
 }

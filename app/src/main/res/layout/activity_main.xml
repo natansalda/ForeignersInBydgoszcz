@@ -39,6 +39,7 @@
             android:id="@+id/tasks_btn"
             style="@style/main_button"
             android:background="@drawable/buttonshapeyellow"
+            android:onClick="seeTasks"
             android:text="@string/my_tasks"
             app:layout_constraintBottom_toTopOf="@+id/formalities_btn"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +49,7 @@
         <Button
             android:id="@+id/formalities_btn"
             style="@style/main_button"
+            android:onClick="seeFormalities"
             android:text="@string/formalities"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
