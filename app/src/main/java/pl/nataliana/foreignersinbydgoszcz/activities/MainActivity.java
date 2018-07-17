@@ -29,12 +29,18 @@ public class MainActivity extends AppCompatActivity {
     // Opens TasksActivity
     public void seeTasks(View view) {
         Intent c = new Intent(MainActivity.this, TasksActivity.class);
-        startActivity(c);
+        Bundle bundle = ActivityOptions
+                .makeSceneTransitionAnimation(this)
+                .toBundle();
+        startActivity(c, bundle);
     }
 
     // Opens FormalitiesActivity
     public void seeFormalities(View view) {
         Intent c = new Intent(MainActivity.this, FormalitiesActivity.class);
-        startActivity(c);
+        Bundle bundle = ActivityOptions
+                .makeSceneTransitionAnimation(this)
+                .toBundle();
+        startActivity(c, bundle);
     }
 }
