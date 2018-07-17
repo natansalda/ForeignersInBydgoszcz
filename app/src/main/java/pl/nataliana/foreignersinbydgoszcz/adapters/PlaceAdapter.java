@@ -62,8 +62,8 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.MyViewHolder
 
         textViewName.setText(dataSet.get(listPosition).getName());
         textViewVersion.setText(dataSet.get(listPosition).getDescription());
-        Picasso.get().load(R.drawable.placeholder).placeholder(R.drawable.placeholder)
-                .resize(150, 50)
+        Picasso.get().load(dataSet.get(listPosition).getImage()).placeholder(R.drawable.placeholder)
+                .resize(1300, 850)
                 .centerCrop()
                 .into(imageViewPlace);
         textViewAddress.setText(dataSet.get(listPosition).getAddress());
