@@ -1,6 +1,8 @@
 package pl.nataliana.foreignersinbydgoszcz.activities;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +20,10 @@ public class MainActivity extends AppCompatActivity {
     // Opens PlacesActivity
     public void seePlaces(View view) {
         Intent c = new Intent(MainActivity.this, PlacesActivity.class);
-        startActivity(c);
+        Bundle bundle = ActivityOptions
+                .makeSceneTransitionAnimation(this)
+                .toBundle();
+        startActivity(c, bundle);
     }
 
     // Opens TasksActivity
