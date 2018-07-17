@@ -48,7 +48,8 @@ public class PlacesActivity extends AppCompatActivity {
                     PlacesData.nameArray[i],
                     PlacesData.descriptionArray[i],
                     PlacesData.id_[i],
-                    PlacesData.drawableArray[i]
+                    PlacesData.drawableArray[i],
+                    PlacesData.addressArray[i]
             ));
         }
 

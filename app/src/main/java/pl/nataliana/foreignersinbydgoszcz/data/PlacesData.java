@@ -11,4 +11,6 @@ public class PlacesData {
             R.drawable.bazylika, R.drawable.pomnik_kazimierza, R.drawable.filharmonia,R.drawable.ratusz};
 
     public static Integer[] id_ = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    public static String[] addressArray = {};
 }

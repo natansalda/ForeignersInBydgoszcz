@@ -23,12 +23,14 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.MyViewHolder
         TextView textViewName;
         TextView textViewVersion;
         ImageView imageViewIcon;
+        TextView textAddress;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            this.textViewName = (TextView) itemView.findViewById(R.id.place_name_txt);
-            this.textViewVersion = (TextView) itemView.findViewById(R.id.place_description_txt);
-            this.imageViewIcon = (ImageView) itemView.findViewById(R.id.imageView);
+            this.textViewName = itemView.findViewById(R.id.place_name_txt);
+            this.textViewVersion = itemView.findViewById(R.id.place_description_txt);
+            this.imageViewIcon = itemView.findViewById(R.id.imageView);
+            this.textAddress = itemView.findViewById(R.id.place_address_txt);
         }
     }
 

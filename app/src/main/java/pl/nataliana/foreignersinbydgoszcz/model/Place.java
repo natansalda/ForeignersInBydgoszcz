@@ -6,12 +6,14 @@ public class Place {
     public String description;
     public int id_;
     public int image;
+    public String address;
 
-    public Place(String name, String description, int id_, int image) {
+    public Place(String name, String description, int id_, int image, String address) {
         this.name = name;
         this.description = description;
         this.id_ = id_;
         this.image = image;
+        this.address = address;
     }
 
     public String getName() {
@@ -28,5 +30,9 @@ public class Place {
 
     public int getId() {
         return id_;
+    }
+
+    public String getAddress() {
+        return address;
     }
 }
