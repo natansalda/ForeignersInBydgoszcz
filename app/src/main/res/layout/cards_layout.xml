@@ -16,7 +16,7 @@
         android:elevation="8dp"
         card_view:cardBackgroundColor="@color/colorIcons"
         card_view:cardCornerRadius="15dp"
-        card_view:cardElevation="10dp"
+        card_view:cardElevation="8dp"
         card_view:cardUseCompatPadding="true">
 
         <LinearLayout
