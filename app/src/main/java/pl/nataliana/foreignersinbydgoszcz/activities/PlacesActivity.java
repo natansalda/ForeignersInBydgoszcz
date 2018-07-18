@@ -56,7 +56,6 @@ public class PlacesActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-
 //    private static class MyOnClickListener implements View.OnClickListener {
 //        private final Context context;
 //
