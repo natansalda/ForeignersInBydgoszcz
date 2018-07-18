@@ -56,12 +56,12 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.MyViewHolder
     public void onBindViewHolder(final MyViewHolder holder, final int listPosition) {
 
         TextView textViewName = holder.textViewName;
-        TextView textViewVersion = holder.textViewDescription;
+        TextView textViewDescription = holder.textViewDescription;
         ImageView imageViewPlace = holder.imageViewPlace;
         TextView textViewAddress = holder.textViewAddress;
 
         textViewName.setText(dataSet.get(listPosition).getName());
-        textViewVersion.setText(dataSet.get(listPosition).getDescription());
+        textViewDescription.setText(dataSet.get(listPosition).getDescription());
         Picasso.get().load(dataSet.get(listPosition).getImage()).placeholder(R.drawable.placeholder)
                 .resize(1300, 850)
                 .centerCrop()
