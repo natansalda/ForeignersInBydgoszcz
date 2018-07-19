@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorIcons"
     android:paddingBottom="@dimen/standard_padding"
     android:paddingLeft="@dimen/standard_padding"
     android:paddingRight="@dimen/standard_padding"
@@ -13,7 +14,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="219dp"
-        android:layout_gravity="center_horizontal"
+        android:scaleType="fitCenter"
         android:layout_margin="@dimen/standard_padding"
         android:contentDescription="@string/logo_description"
         android:src="@drawable/logo" />

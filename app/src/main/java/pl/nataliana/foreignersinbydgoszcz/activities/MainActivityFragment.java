@@ -19,7 +19,7 @@ public class MainActivityFragment extends Fragment {
     // It adds ad banner for the main screen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                      Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
 
         AdView mAdView = (AdView) root.findViewById(R.id.adView);
