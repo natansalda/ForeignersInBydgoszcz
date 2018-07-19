@@ -1,61 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment"
+    android:name="pl.nataliana.foreignersinbydgoszcz.activities.MainActivityFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:background="@color/colorIcons"
-    android:orientation="vertical"
-    tools:context=".activities.MainActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="219dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/standard_padding"
-        android:contentDescription="@string/logo_description"
-        android:src="@drawable/logo" />
-
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/visit_btn"
-            style="@style/main_button"
-            android:background="@drawable/buttonshape"
-            android:onClick="seePlaces"
-            android:text="@string/visit"
-            android:typeface="monospace"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.032" />
-
-        <Button
-            android:id="@+id/tasks_btn"
-            style="@style/main_button"
-            android:background="@drawable/buttonshapeyellow"
-            android:onClick="seeTasks"
-            android:text="@string/my_tasks"
-            app:layout_constraintBottom_toTopOf="@+id/formalities_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/visit_btn" />
-
-        <Button
-            android:id="@+id/formalities_btn"
-            style="@style/main_button"
-            android:onClick="seeFormalities"
-            android:text="@string/formalities"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tasks_btn"
-            app:layout_constraintVertical_bias="0.018" />
-    </android.support.constraint.ConstraintLayout>
-</LinearLayout>
+    tools:layout="@layout/fragment_main" />

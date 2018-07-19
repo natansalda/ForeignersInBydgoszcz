@@ -2,14 +2,13 @@ package pl.nataliana.foreignersinbydgoszcz.activities;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/standard_padding"
+    android:paddingLeft="@dimen/standard_padding"
+    android:paddingRight="@dimen/standard_padding"
+    android:paddingTop="@dimen/standard_padding"
+    tools:context=".activities.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="219dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/standard_padding"
+        android:contentDescription="@string/logo_description"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/visit_btn"
+        style="@style/main_button"
+        android:background="@drawable/buttonshape"
+        android:onClick="seePlaces"
+        android:text="@string/visit"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/tasks_btn"
+        style="@style/main_button"
+        android:background="@drawable/buttonshapeyellow"
+        android:onClick="seeTasks"
+        android:text="@string/my_tasks" />
+
+    <Button
+        android:id="@+id/formalities_btn"
+        style="@style/main_button"
+        android:onClick="seeFormalities"
+        android:text="@string/formalities" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id" />
+</LinearLayout>
