@@ -89,6 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
+                    android:onClick="seeOnMap"
                     android:textAllCaps="true"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/see_on_map"

@@ -25,6 +25,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <!--Register MainActivity. -->
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,12 +38,34 @@
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
+        <!--Register all other activities. -->
         <activity
             android:name=".activities.PlacesActivity"
             android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.TasksActivity"
+            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.FormalitiesActivity"
+            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.MapActivity"
+            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.PlacesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.nataliana.foreignersinbydgoszcz.activities.PlacesActivity" />
         </activity>
     </application>
 

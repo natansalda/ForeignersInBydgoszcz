@@ -1,6 +1,8 @@
 package pl.nataliana.foreignersinbydgoszcz.activities;
 
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -85,5 +87,14 @@ public class PlacesActivity extends AppCompatActivity {
 //            adapter.notifyItemRemoved(selectedItemPosition);
             return;
         }
+    }
+
+    // Opens PlacesActivity
+    public void seeOnMap(View v) {
+        Intent c = new Intent(PlacesActivity.this, MapActivity.class);
+        Bundle bundle = ActivityOptions
+                .makeSceneTransitionAnimation(this)
+                .toBundle();
+        startActivity(c, bundle);
     }
 }
