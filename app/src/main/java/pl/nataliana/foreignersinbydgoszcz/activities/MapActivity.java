@@ -2,6 +2,7 @@ package pl.nataliana.foreignersinbydgoszcz.activities;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -39,9 +40,16 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+        // Add a marker in Bydgoszcz and move the camera
         LatLng bydgoszcz = new LatLng(53, 18);
-        mMap.addMarker(new MarkerOptions().position(bydgoszcz).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(bydgoszcz).title("Marker in Bydgoszcz"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(bydgoszcz));
+    }
+
+    public void centerMap(View view) {
+        // Move the map back to Bydgoszcz
+        LatLng bydgoszcz = new LatLng(53, 18);
+        mMap.addMarker(new MarkerOptions().position(bydgoszcz).title("Marker in Bydgoszcz"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(bydgoszcz));
     }
 }
