@@ -89,7 +89,7 @@ public class PlacesActivity extends AppCompatActivity {
         }
     }
 
-    // Opens PlacesActivity
+    // Opens map of the city
     public void seeOnMap(View v) {
         Intent c = new Intent(PlacesActivity.this, MapActivity.class);
         Bundle bundle = ActivityOptions

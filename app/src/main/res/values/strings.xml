@@ -7,9 +7,11 @@
     <string name="picture_of_interesting_place">Picture of interesting place</string>
     <string name="name_of_the_place">Name of the place</string>
     <string name="place_description">This is a short but valuable place description. We can add even more text here to see how this text will apeat on our card.</string>
-    <string name="see_on_map">see on map</string>
+    <string name="see_on_map">see the map</string>
     <string name="pin_on_map_logo">Pin on map logo</string>
     // This is the public application ID provided by Google for demo purposes
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="center_the_map">Center the map</string>
+    <string name="name_of_the_office">Name of the office</string>
+    <string name="office_description">Office description</string>
 </resources>

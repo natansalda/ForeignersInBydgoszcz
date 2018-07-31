@@ -32,6 +32,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     private GoogleMap mMap;
     private LatLngBounds.Builder mBounds = new LatLngBounds.Builder();
+    LatLng bydgoszcz = new LatLng(53.12199, 18);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +50,16 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mMap = googleMap;
 
         // Add a marker in Bydgoszcz and move the camera
-        LatLng bydgoszcz = new LatLng(53.12199, 18);
         mMap.addMarker(new MarkerOptions().position(bydgoszcz).title("Marker in Bydgoszcz"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(bydgoszcz));
-        mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bydgoszcz,15.0f ));
+        centerMap(null);
+
     }
 
     public void centerMap(View view) {
         // Move the map back to Bydgoszcz
-        LatLng bydgoszcz = new LatLng(53.12199, 18);
         mMap.addMarker(new MarkerOptions().position(bydgoszcz).title("Marker in Bydgoszcz"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(bydgoszcz));
-        mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bydgoszcz,15.0f ));
     }
 }
 

@@ -3,7 +3,7 @@ package pl.nataliana.foreignersinbydgoszcz.data;
 import pl.nataliana.foreignersinbydgoszcz.R;
 
 public class PlacesData {
-    public static Integer[] id_ = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11};
+    public static Integer[] id_ = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     public static String[] nameArray = {"Mill Island (Wyspa Młyńska)", "Opera Nova", "Main Post Office", "Cathedral", "Bydgoszcz Canal", "Old granaries", "Valley of Death","St. Vincent de Paul Basilica Minor", "King Kasimir the Great Monument", "Pomeranian Philharmonic", "City Hall"};
     public static String[] descriptionArray = {
             "Best place to relax in the city center! You can enjoy green grass where you can play or rest, admire nice architecture around you, and let your kids play on the sandy beach.",
