@@ -39,15 +39,15 @@ public class FormalData {
                     "\nRegistration office no 1 \n" +
                     "13 Przyrzecze st; 1st floor, room no 106 \n" +
                     "85-102 Bydgoszcz \n" +
-                    "phone 52 5858126, 52 5858840\n" +
+                    "phone 52 5858126, 52 5858840\n\n" +
                     "Registration office Fordon\n" +
                     "6 E. Gierczak st \n" +
                     "85-791 Bydgoszcz \n" +
-                    "phone 52 5858737, 52 5858739\n" +
+                    "phone 52 5858737, 52 5858739\n\n" +
                     "Registration office Wyżyny\n" +
                     "18 Boya Żeleńskiego st\n" +
                     "85-858 Bydgoszcz \n" +
-                    "phone 52 5858953, 52 5858952\n" +
+                    "phone 52 5858953, 52 5858952\n\n" +
                     "POM CH Zielone Arkady\n" +
                     "1 Wojska Polskiego st\n" +
                     "85-171 Bydgoszcz \n" +
@@ -56,15 +56,15 @@ public class FormalData {
                     "\nRegistration office no 1 \n" +
                     "13 Przyrzecze st; 1st floor, room no 106 \n" +
                     "85-102 Bydgoszcz \n" +
-                    "phone 52 5858126, 52 5858840\n" +
+                    "phone 52 5858126, 52 5858840\n\n" +
                     "Registration office Fordon\n" +
                     "6 E. Gierczak st \n" +
                     "85-791 Bydgoszcz \n" +
-                    "phone 52 5858737, 52 5858739\n" +
+                    "phone 52 5858737, 52 5858739\n\n" +
                     "Registration office Wyżyny\n" +
                     "18 Boya Żeleńskiego st\n" +
                     "85-858 Bydgoszcz \n" +
-                    "phone 52 5858953, 52 5858952\n" +
+                    "phone 52 5858953, 52 5858952\n\n" +
                     "POM CH Zielone Arkady\n" +
                     "1 Wojska Polskiego st\n" +
                     "85-171 Bydgoszcz \n" +

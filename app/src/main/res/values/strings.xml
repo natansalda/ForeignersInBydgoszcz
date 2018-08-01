@@ -14,4 +14,20 @@
     <string name="center_the_map">Center the map</string>
     <string name="name_of_the_office">Name of the office</string>
     <string name="office_description">Office description</string>
+    <string name="download_file">Download file</string>
+    <string name="info">Info</string>
+    <string name="about">About</string>
+    <string name="about_title">About Freigners in Bydgoszcz App</string>
+    <string name="about_text">Foreigners in Bydgoszcz App is created for foreigners living in Bydgoszcz, to help them make themselves comfortable in their new city.\n\n
+                AUTHORS:\n
+                Developer: Natalia Nazaruk\n
+                Formalities section: Kasia Stawowy\n
+                All photos: Natalia Nazaruk\n</string>
+    <string name="ok">OK</string>
+    <string name="download_text">You can download offices information in pdf format</string>
+    <string name="file_is_downloading">File is being downloaded</string>
+    <string name="output_file_path">/downloads/foreigners.pdf</string>
+    <string name="input_file_path">https://drive.google.com/file/d/1QisxNwBq7KG6r7DPKw5mK_rD22psQw6f/view?usp=sharing</string>
+    <string name="download_error">Download error:</string>
+    <string name="file_downloaded">File downloaded</string>
 </resources>
