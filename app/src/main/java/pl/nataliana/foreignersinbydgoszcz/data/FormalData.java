@@ -37,37 +37,36 @@ public class FormalData {
                     "Forms to download: https://um.bydgoszcz.pl/sprawy/wuk-rejestracja-pojazdu.asp\n",
             "Notification of permanent residence of foreigners." +
                     "\nRegistration office no 1 \n" +
-                    "Przyrzecze street 13; 1st floor, room no 106 \n" +
+                    "13 Przyrzecze st; 1st floor, room no 106 \n" +
                     "85-102 Bydgoszcz \n" +
                     "phone 52 5858126, 52 5858840\n" +
                     "Registration office Fordon\n" +
-                    "E. Gierczak street 6 \n" +
+                    "6 E. Gierczak st \n" +
                     "85-791 Bydgoszcz \n" +
                     "phone 52 5858737, 52 5858739\n" +
                     "Registration office Wyżyny\n" +
-                    "Boya Żeleńskiego street 18 \n" +
+                    "18 Boya Żeleńskiego st\n" +
                     "85-858 Bydgoszcz \n" +
                     "phone 52 5858953, 52 5858952\n" +
                     "POM CH Zielone Arkady\n" +
-                    "Wojska Polskiego street 1 \n" +
+                    "1 Wojska Polskiego st\n" +
                     "85-171 Bydgoszcz \n" +
                     "phone 52 5859466\n",
-            "Notification of temporary residence of a foreigner and citizens of European Union member states and their family members\n" +
-                    "\n" +
-                    "Registration office no 1 \n" +
-                    "Przyrzecze street 13; 1st floor, room no 106 \n" +
+            "Notification of temporary residence of a foreigner and citizens of European Union member states and their family members" +
+                    "\nRegistration office no 1 \n" +
+                    "13 Przyrzecze st; 1st floor, room no 106 \n" +
                     "85-102 Bydgoszcz \n" +
                     "phone 52 5858126, 52 5858840\n" +
                     "Registration office Fordon\n" +
-                    "E. Gierczak street 6 \n" +
+                    "6 E. Gierczak st \n" +
                     "85-791 Bydgoszcz \n" +
                     "phone 52 5858737, 52 5858739\n" +
                     "Registration office Wyżyny\n" +
-                    "Boya Żeleńskiego street 18 \n" +
+                    "18 Boya Żeleńskiego st\n" +
                     "85-858 Bydgoszcz \n" +
                     "phone 52 5858953, 52 5858952\n" +
                     "POM CH Zielone Arkady\n" +
-                    "Wojska Polskiego street 1 \n" +
+                    "1 Wojska Polskiego st\n" +
                     "85-171 Bydgoszcz \n" +
                     "phone 52 5859466\n",
             "Hours of customer service: Monday, Wednesday, Thursday 8.00 am – 4.00 pm, Tuesday 8.00 am – 6.00 pm, Friday 8.00 am – 2.00 pm"};
@@ -92,6 +91,6 @@ public class FormalData {
                     "13 Przyrzecze st; 1st floor, room no 106 \n" +
                     "85-102 Bydgoszcz \n",
             "Family Benefits Department\n" +
-                    "Wojska Polskiego street 65 \n" +
+                    "65 Wojska Polskiego st\n" +
                     "85-825 Bydgoszcz \n"};
 }

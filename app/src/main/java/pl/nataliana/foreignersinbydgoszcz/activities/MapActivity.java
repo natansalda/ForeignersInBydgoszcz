@@ -32,8 +32,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private float zoomLevel;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle outState) {
+        super.onCreate(outState);
         setContentView(R.layout.activity_maps);
 
         // Set up Google Maps
@@ -42,10 +42,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mapFragment.getMapAsync(this);
 
         //Save map state
-        if (savedInstanceState != null) {
-            latitude = savedInstanceState.getDouble(LAT);
-            longitude = savedInstanceState.getDouble(LONG);
-            zoomLevel = savedInstanceState.getFloat(ZOOM);
+        if (outState != null) {
+            latitude = outState.getDouble(LAT);
+            longitude = outState.getDouble(LONG);
+            zoomLevel = outState.getFloat(ZOOM);
 
         } else {
             latitude = latitudeBydg;
