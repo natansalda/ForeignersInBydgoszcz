@@ -41,28 +41,32 @@
         <!--Register all other activities. -->
         <activity
             android:name=".activities.PlacesActivity"
-            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity">
+            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity"
+            android:configChanges="orientation|screenSize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity" />
         </activity>
         <activity
             android:name=".activities.TasksActivity"
-            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity">
+            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity"
+            android:configChanges="orientation|screenSize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity" />
         </activity>
         <activity
             android:name=".activities.FormalitiesActivity"
-            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity">
+            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity"
+            android:configChanges="orientation|screenSize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity" />
         </activity>
         <activity
             android:name=".activities.MapActivity"
-            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.PlacesActivity">
+            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.PlacesActivity"
+            android:configChanges="orientation|screenSize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.nataliana.foreignersinbydgoszcz.activities.PlacesActivity" />

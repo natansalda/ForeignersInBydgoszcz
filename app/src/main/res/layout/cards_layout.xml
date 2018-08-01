@@ -43,7 +43,8 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif"
                 android:text="@string/name_of_the_place"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/place_description_txt"
@@ -89,14 +90,14 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:onClick="seeOnMap"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:text="@string/see_on_map"
                     android:fontFamily="sans-serif"
+                    android:onClick="seeOnMap"
+                    android:text="@string/see_on_map"
+                    android:textAllCaps="true"
                     android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
-                    android:theme="@style/PrimaryFlatButton"/>
+                    android:theme="@style/PrimaryFlatButton" />
             </RelativeLayout>
 
         </LinearLayout>

@@ -13,11 +13,13 @@ public class FormalData {
             "Temporary residence ",
             "Family Benefits-500Plus"};
     public static String[] descriptionArray = {
-            "Receipt of applications: rooms no: 206, 207, 208, 240,\n" +
+            "Receipt of applications: \n " +
+                    "rooms no: 206, 207, 208, 240,\n" +
                     "Issuing passports: room no 204\n" +
                     "Office hours: Monday, Wednesday-Friday 7.30 am - 3.30 pm,  Tuesday 8.00 am - 6.00 pm\n" +
                     "\n" +
-                    "Hours of customer service: Monday, Thursday, Friday 8.00 am- 2.40 pm, Tuesday 8.00 am - 5:40 pm, Wednesday 10.00 am - 2.40 pm.\n" +
+                    "Hours of customer service: \n" +
+                    "Monday, Thursday, Friday 8.00 am- 2.40 pm, Tuesday 8.00 am - 5:40 pm, Wednesday 10.00 am - 2.40 pm.\n" +
                     "The daily limit of tickets issued on Monday, Wednesday, Thursday and Friday for submitting an application for issuing a passport document is 100 pieces and for the receipt of a passport also 100 pieces. On Tuesdays, the daily limit is 150 items.\n",
             "Remember to check which regulations are valid for citizens of your country.",
             "Accepting applications regarding Polish citizenship takes place in the following hours:\n" +
