@@ -26,7 +26,7 @@
     <string name="ok">OK</string>
     <string name="download_text">You can download offices information in pdf format</string>
     <string name="file_is_downloading">File is being downloaded</string>
-    <string name="output_file_path">/downloads/foreigners.pdf</string>
+    <string name="output_file_path">/foreigners.pdf</string>
     <string name="input_file_path">https://drive.google.com/file/d/1QisxNwBq7KG6r7DPKw5mK_rD22psQw6f/view?usp=sharing</string>
     <string name="download_error">Download error:</string>
     <string name="file_downloaded">File downloaded</string>
