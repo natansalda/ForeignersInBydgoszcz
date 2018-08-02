@@ -24,7 +24,7 @@
                 Formalities section: Kasia Stawowy\n
                 All photos: Natalia Nazaruk\n</string>
     <string name="ok">OK</string>
-    <string name="download_text">Soon you will be able to download offices information in pdf format</string>
+    <string name="download_text">Soon you will be able to download offices information in pdf format. \nBefore it happens - please check your internet connection with a button to the left.</string>
     <string name="file_is_downloading">File is being downloaded</string>
     <string name="output_file_path">/foreigners.pdf</string>
     <string name="input_file_path">https://drive.google.com/file/d/1QisxNwBq7KG6r7DPKw5mK_rD22psQw6f/view?usp=sharing</string>

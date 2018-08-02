@@ -134,21 +134,7 @@ public class FormalitiesActivity extends AppCompatActivity {
     }
 
     public void checkConnection() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(FormalitiesActivity.this);
-        builder.setMessage(R.string.here_check_internet);
-        builder.setCancelable(true);
-
-        builder.setPositiveButton(
-                R.string.ok,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        AlertDialog alert = builder.create();
-        alert.show();
-        new NetworkUtils(FormalitiesActivity.this).execute();
+        new NetworkAsyncTask().execute();
     }
 
 
@@ -158,31 +144,25 @@ public class FormalitiesActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            dialog = new ProgressDialog(FormalitiesActivity.this);
-            dialog.setMessage("Loading...");
-            dialog.setCancelable(false);
-            dialog.show();
             super.onPreExecute();
         }
 
         @Override
         protected String doInBackground(String... arg0) {
 
-            boolean isConnected = NetworkUtils.isNetworkAvailable();
+            boolean isConnected = NetworkUtils.isNetworkAvailable(getApplicationContext());
+            String result;
             if (isConnected ) {
-                Toast.makeText(FormalitiesActivity.this, "awesome - you are connected", Toast.LENGTH_SHORT).show();
+                result = "awesome - you are connected";
             } else {
-                Toast.makeText(FormalitiesActivity.this, "no internet!", Toast.LENGTH_SHORT).show();
+                result = "ups - you don't have internet!";
             }
-            return null;
+            return result;
         }
 
         @Override
         protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            if (dialog.isShowing()) {
-                dialog.dismiss();
-            }
+            Toast.makeText(FormalitiesActivity.this, result, Toast.LENGTH_LONG).show();
         }
     }
 }
