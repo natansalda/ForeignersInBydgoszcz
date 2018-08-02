@@ -152,10 +152,10 @@ public class FormalitiesActivity extends AppCompatActivity {
 
             boolean isConnected = NetworkUtils.isNetworkAvailable(getApplicationContext());
             String result;
-            if (isConnected ) {
-                result = "awesome - you are connected";
+            if (isConnected) {
+                result = getString(R.string.yes_net);
             } else {
-                result = "ups - you don't have internet!";
+                result = getString(R.string.no_net);
             }
             return result;
         }

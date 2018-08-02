@@ -31,4 +31,6 @@
     <string name="download_error">Download error:</string>
     <string name="file_downloaded">File downloaded</string>
     <string name="here_check_internet">Here we check your internet connection</string>
+    <string name="yes_net">awesome - you are connected</string>
+    <string name="no_net">ups - you don\'t have internet!</string>
 </resources>
