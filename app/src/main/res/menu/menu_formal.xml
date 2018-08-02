@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/download"
-        android:icon="@drawable/ic_download_icon"
+        android:icon="@drawable/ic_check"
         android:title="@string/download_file"
         android:iconTint="@color/colorIcons"
         app:showAsAction="ifRoom"/>
     <item android:id="@+id/info"
-        android:icon="@drawable/ic_help_icon"
+        android:icon="@drawable/ic_info"
         android:title="@string/info"
         android:iconTint="@color/colorIcons"
         app:showAsAction="ifRoom"/>
