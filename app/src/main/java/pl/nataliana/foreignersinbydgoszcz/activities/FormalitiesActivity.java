@@ -29,6 +29,8 @@ import pl.nataliana.foreignersinbydgoszcz.R;
 import pl.nataliana.foreignersinbydgoszcz.adapters.FormalAdapter;
 import pl.nataliana.foreignersinbydgoszcz.data.FormalData;
 import pl.nataliana.foreignersinbydgoszcz.model.Formal;
+import pl.nataliana.foreignersinbydgoszcz.utils.CheckNetwork;
+import pl.nataliana.foreignersinbydgoszcz.utils.NetworkUtils;
 
 public class FormalitiesActivity extends AppCompatActivity {
 
@@ -104,7 +106,7 @@ public class FormalitiesActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.download:
-                downloadFile();
+                checkConnection();
                 return true;
             case R.id.info:
                 showDialog();
@@ -131,7 +133,7 @@ public class FormalitiesActivity extends AppCompatActivity {
         alert.show();
     }
 
-    public void downloadFile() {
+    public void checkConnection() {
         AlertDialog.Builder builder = new AlertDialog.Builder(FormalitiesActivity.this);
         builder.setMessage(R.string.here_check_internet);
         builder.setCancelable(true);
@@ -146,5 +148,42 @@ public class FormalitiesActivity extends AppCompatActivity {
 
         AlertDialog alert = builder.create();
         alert.show();
+        new NetworkUtils(FormalitiesActivity.this).execute();
+    }
+
+
+    public class NetworkAsyncTask extends AsyncTask<String, Void, String> {
+
+        private ProgressDialog dialog;
+
+        @Override
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(FormalitiesActivity.this);
+            dialog.setMessage("Loading...");
+            dialog.setCancelable(false);
+            dialog.show();
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... arg0) {
+
+            boolean isConnected = NetworkUtils.isNetworkAvailable();
+            if (isConnected ) {
+                Toast.makeText(FormalitiesActivity.this, "awesome - you are connected", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(FormalitiesActivity.this, "no internet!", Toast.LENGTH_SHORT).show();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+        }
     }
 }
+
