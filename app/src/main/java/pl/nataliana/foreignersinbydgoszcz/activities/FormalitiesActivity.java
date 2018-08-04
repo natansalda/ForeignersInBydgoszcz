@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,19 +16,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
 import pl.nataliana.foreignersinbydgoszcz.adapters.FormalAdapter;
 import pl.nataliana.foreignersinbydgoszcz.data.FormalData;
 import pl.nataliana.foreignersinbydgoszcz.model.Formal;
-import pl.nataliana.foreignersinbydgoszcz.utils.CheckNetwork;
 import pl.nataliana.foreignersinbydgoszcz.utils.NetworkUtils;
 
 public class FormalitiesActivity extends AppCompatActivity {

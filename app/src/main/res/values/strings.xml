@@ -33,4 +33,7 @@
     <string name="here_check_internet">Here we check your internet connection</string>
     <string name="yes_net">awesome - you are connected</string>
     <string name="no_net">ups - you don\'t have internet!</string>
+    <string name="add_task">add task</string>
+    <string name="add_button_text">Add</string>
+    <string name="status">status</string>
 </resources>
