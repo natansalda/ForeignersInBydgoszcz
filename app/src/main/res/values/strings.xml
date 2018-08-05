@@ -36,4 +36,5 @@
     <string name="add_task">add task</string>
     <string name="add_button_text">Add</string>
     <string name="status">status</string>
+    <string name="new_task_name">My new task</string>
 </resources>
