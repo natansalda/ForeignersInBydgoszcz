@@ -2,11 +2,13 @@ package pl.nataliana.foreignersinbydgoszcz.activities;
 
 import android.app.AlertDialog;
 import android.app.LoaderManager;
+import android.content.ContentUris;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -65,11 +67,10 @@ public class TasksActivity extends AppCompatActivity implements LoaderManager.Lo
         tasksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                // TODO change status image - done or not done
-//                Intent intent = new Intent(TasksActivity.this, StoreActivity.class);
-//                Uri currentTaskUri = ContentUris.withAppendedId(TaskContract.TaskEntry.CONTENT_URI, id);
-//                intent.setData(currentTaskUri);
-//                startActivity(intent);
+                Intent intent = new Intent(TasksActivity.this, AddTaskActivity.class);
+                Uri currentTaskUri = ContentUris.withAppendedId(TaskContract.TaskEntry.CONTENT_URI, id);
+                intent.setData(currentTaskUri);
+                startActivity(intent);
             }
         });
         getLoaderManager().initLoader(0, null, this);

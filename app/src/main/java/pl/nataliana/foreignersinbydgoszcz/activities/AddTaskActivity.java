@@ -52,8 +52,23 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
         taskEditText = findViewById(R.id.editText);
         taskStatusImageView = findViewById(R.id.imageView_status);
 
-        taskEditText.setOnTouchListener(mTouchListener);
-        taskStatusImageView.setOnTouchListener(mTouchListener);
+//        taskEditText.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                return;
+//            }
+//        });
+
+        taskStatusImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (taskStatusImageView.getDrawable().getConstantState() == getResources().getDrawable( R.drawable.done).getConstantState()){
+                    taskStatusImageView.setImageResource(R.drawable.not_done);
+                } else {
+                    taskStatusImageView.setImageResource(R.drawable.done);
+                }
+            }
+        });
 
         Intent intent = getIntent();
         currentTaskUri = intent.getData();
@@ -227,11 +242,11 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
             int statusColumnIndex = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_STATUS);
 
             String name = cursor.getString(nameColumnIndex);
-            int status = cursor.getInt(statusColumnIndex);
+            currentTaskUri = Uri.parse(cursor.getString(statusColumnIndex));
 
             taskEditText.setText(name);
 
-            Picasso.get().load(status)
+            Picasso.get().load(currentTaskUri)
                     .placeholder(R.drawable.not_done)
                     .fit()
                     .into(taskStatusImageView);
