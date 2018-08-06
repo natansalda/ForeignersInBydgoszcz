@@ -37,4 +37,11 @@
     <string name="add_button_text">Add</string>
     <string name="status">status</string>
     <string name="new_task_name">My new task</string>
+    <string name="text_empty_view">\nYou have no tasks yet!\nAdd your first task.</string>
+    <string name="delete_all_entry">ARE YOU SURE YOU WANT TO DELETE ALL TASKS?</string>
+    <string name="action_delete">Delete</string>
+    <string name="list_deleted">All tasks have been deleted</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_all_tasks_dialog_text">DELETE ALL TASKS</string>
+    <string name="delete_all_tasks">Delete all tasks</string>
 </resources>
