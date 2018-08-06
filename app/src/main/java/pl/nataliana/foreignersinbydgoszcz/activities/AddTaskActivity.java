@@ -1,5 +1,6 @@
 package pl.nataliana.foreignersinbydgoszcz.activities;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.LoaderManager;
 import android.content.ContentValues;
@@ -7,20 +8,23 @@ import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
 import pl.nataliana.foreignersinbydgoszcz.database.TaskContract;
@@ -32,16 +36,8 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
     private EditText taskEditText;
     private ImageView taskStatusImageView;
     private int rowsDeleted = 0;
+    private String currentImageUri = "no image";
     private boolean taskChange = false;
-
-    // Check for field changes.
-    private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            taskChange = true;
-            return false;
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,17 +48,10 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
         taskEditText = findViewById(R.id.editText);
         taskStatusImageView = findViewById(R.id.imageView_status);
 
-//        taskEditText.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                return;
-//            }
-//        });
-
         taskStatusImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (taskStatusImageView.getDrawable().getConstantState() == getResources().getDrawable( R.drawable.done).getConstantState()){
+                if (taskStatusImageView.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.done).getConstantState()) {
                     taskStatusImageView.setImageResource(R.drawable.not_done);
                 } else {
                     taskStatusImageView.setImageResource(R.drawable.done);
@@ -149,6 +138,19 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
                     }
                 };
         cancelChangesDialog(discardButtonClickListener);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            if (data != null) {
+            }
+            Uri mProductPhotoUri = data.getData();
+            currentImageUri = mProductPhotoUri.toString();
+
+            Picasso.get().load(mProductPhotoUri)
+                    .placeholder(R.drawable.not_done)
+                    .fit()
+                    .into(taskStatusImageView);
     }
 
     private void AddNewProduct() {
