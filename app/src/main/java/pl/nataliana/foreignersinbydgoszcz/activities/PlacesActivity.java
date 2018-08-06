@@ -69,22 +69,7 @@ public class PlacesActivity extends AppCompatActivity {
         public void onClick(View v) {
             addToWidget(v);
         }
-
         private void addToWidget(View v) {
-//            int selectedItemPosition = recyclerView.getChildPosition(v);
-//            RecyclerView.ViewHolder viewHolder
-//                    = recyclerView.findViewHolderForPosition(selectedItemPosition);
-//            TextView textViewName
-//                    = viewHolder.itemView.findViewById(R.id.textViewName);
-//            String selectedName = (String) textViewName.getText();
-//            int selectedItemId = -1;
-//            for (int i = 0; i < PlacesData.nameArray.length; i++) {
-//                if (selectedName.equals(PlacesData.nameArray[i])) {
-//                    selectedItemId = PlacesData.id_[i];
-//                }
-//            }
-//            listOfPlaces.remove(selectedItemPosition);
-//            adapter.notifyItemRemoved(selectedItemPosition);
             return;
         }
     }

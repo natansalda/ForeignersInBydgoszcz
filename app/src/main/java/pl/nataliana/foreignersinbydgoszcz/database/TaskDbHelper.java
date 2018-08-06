@@ -9,7 +9,7 @@ public class TaskDbHelper extends SQLiteOpenHelper {
     /**
      * Name of the database
      */
-    private static final String DATABASE_NAME = "tasksDatabase.db";
+    private static final String DATABASE_NAME = "myTasks.db";
 
     /**
      * Version of the database

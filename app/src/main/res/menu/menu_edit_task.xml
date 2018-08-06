@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/saved_product"
+        android:icon="@drawable/ic_save_black_24dp"
+        android:title="@string/save_task"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/delete_product"
+        android:icon="@drawable/ic_delete_forever_black_24dp"
+        android:title="@string/action_delete"
+        app:showAsAction="always" />
+</menu>

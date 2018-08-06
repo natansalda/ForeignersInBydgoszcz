@@ -3,12 +3,17 @@ package pl.nataliana.foreignersinbydgoszcz.database;
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
+import android.media.Image;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
 
@@ -27,7 +32,8 @@ public class TaskCursorAdapter extends CursorAdapter {
     public void bindView(View view, final Context context, final Cursor cursor) {
 
         // Bind Views
-        CheckBox taskCheckBox = view.findViewById(R.id.checkBox);
+        TextView taskCheckBox = view.findViewById(R.id.checkBox);
+        ImageView statusImageView = view.findViewById(R.id.imageView2);
 
         // Find the proper columns
         int nameColumnIndex = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_TASKNAME);
@@ -36,16 +42,12 @@ public class TaskCursorAdapter extends CursorAdapter {
         // Read the attributes of the product from the Cursor for the current product.
         int id = cursor.getInt(cursor.getColumnIndex(TaskContract.TaskEntry._ID));
         final String taskName = cursor.getString(nameColumnIndex);
-        String taskStatus = cursor.getString(statusColumnIndex);
+        int taskStatus = cursor.getInt(statusColumnIndex);
 
-        final Uri currentProductUri = ContentUris.withAppendedId(TaskContract.TaskEntry.CONTENT_URI, id);
+        final Uri currentTaskUri = ContentUris.withAppendedId(TaskContract.TaskEntry.CONTENT_URI, id);
 
-        // Update CheckBox with attributes for the current product
+        // Update views with attributes for the current product
         taskCheckBox.setText(taskName);
-        Boolean checked = false;
-        if (taskStatus.equals("1")) {
-            checked = true;
-        }
-        taskCheckBox.setChecked(checked);
+        Picasso.get().load(R.drawable.not_done).into(statusImageView);
     }
 }

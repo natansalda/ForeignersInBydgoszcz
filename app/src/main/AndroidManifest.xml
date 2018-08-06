@@ -68,6 +68,14 @@
                 android:value="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity" />
         </activity>
         <activity
+            android:name=".activities.AddTaskActivity"
+            android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.TasksActivity"
+            android:configChanges="orientation|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.nataliana.foreignersinbydgoszcz.activities.MainActivity" />
+        </activity>
+        <activity
             android:name=".activities.MapActivity"
             android:parentActivityName="pl.nataliana.foreignersinbydgoszcz.activities.PlacesActivity"
             android:configChanges="orientation|screenSize">
@@ -75,6 +83,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.nataliana.foreignersinbydgoszcz.activities.PlacesActivity" />
         </activity>
+        <provider
+            android:name=".database.TaskProvider"
+            android:authorities="pl.nataliana.foreignersinbydgoszcz">
+        </provider>
     </application>
-
 </manifest>

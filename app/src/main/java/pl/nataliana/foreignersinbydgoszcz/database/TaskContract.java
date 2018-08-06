@@ -10,7 +10,7 @@ public class TaskContract {
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
-    public static final String PATH_PRODUCT = "foraignerinbydgoszcz";
+    public static final String PATH_PRODUCT = "myTasks";
 
     // private constructor can be empty
     private TaskContract() {

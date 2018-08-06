@@ -1,4 +1,245 @@
 package pl.nataliana.foreignersinbydgoszcz.activities;
 
-public class AddTaskActivity {
+import android.app.AlertDialog;
+import android.app.LoaderManager;
+import android.content.ContentValues;
+import android.content.CursorLoader;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.Loader;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
+
+import pl.nataliana.foreignersinbydgoszcz.R;
+import pl.nataliana.foreignersinbydgoszcz.database.TaskContract;
+
+public class AddTaskActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+
+    private static final int EXISTING_TASK_LOADER = 0;
+    private Uri currentTaskUri;
+    private EditText taskEditText;
+    private ImageView taskStatusImageView;
+    private int rowsDeleted = 0;
+    private boolean taskChange = false;
+
+    // Check for field changes.
+    private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            taskChange = true;
+            return false;
+        }
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_task);
+
+        // Binding the views.
+        taskEditText = findViewById(R.id.editText);
+        taskStatusImageView = findViewById(R.id.imageView_status);
+
+        taskEditText.setOnTouchListener(mTouchListener);
+        taskStatusImageView.setOnTouchListener(mTouchListener);
+
+        Intent intent = getIntent();
+        currentTaskUri = intent.getData();
+        if (currentTaskUri == null) {
+            setTitle(getString(R.string.title_activity_new_task));
+            invalidateOptionsMenu();
+        } else {
+            setTitle(getString(R.string.title_activity_modify_task));
+            taskEditText.setHintTextColor(getResources().getColor(R.color.colorPrimaryDark));
+            getLoaderManager().initLoader(EXISTING_TASK_LOADER, null, this);
+        }
+    }
+
+    private void showDeleteConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.delete_single_task);
+        builder.setPositiveButton(R.string.action_delete, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                deleteTask();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    //Perform the removal of the task in the database.
+    private void deleteTask() {
+        // Only perform the delete if the product exists.
+        if (currentTaskUri != null) {
+            int rowsDeleted = getContentResolver().delete(currentTaskUri, null, null);
+            if (rowsDeleted == 0) {
+                Toast.makeText(this, R.string.task_deleted, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(AddTaskActivity.this, TasksActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Task couldn't been deleted", Toast.LENGTH_SHORT).show();
+            }
+            finish();
+        }
+    }
+
+    private void cancelChangesDialog(
+            DialogInterface.OnClickListener discardButtonClickListener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.discard_changes_msg);
+        builder.setPositiveButton(R.string.discard, discardButtonClickListener);
+        builder.setNegativeButton(R.string.continue_editing, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!taskChange) {
+            super.onBackPressed();
+            return;
+        }
+
+        DialogInterface.OnClickListener discardButtonClickListener =
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                };
+        cancelChangesDialog(discardButtonClickListener);
+    }
+
+    private void AddNewProduct() {
+        String name = taskEditText.getText().toString();
+
+        if (name.isEmpty()) {
+            Toast.makeText(this, R.string.enter_task, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ContentValues values = new ContentValues();
+        values.put(TaskContract.TaskEntry.KEY_TASKNAME, name);
+        values.put(TaskContract.TaskEntry.KEY_STATUS, 0);
+
+        if (currentTaskUri == null) {
+            Uri insertedRow = getContentResolver().insert(TaskContract.TaskEntry.CONTENT_URI, values);
+            if (insertedRow == null) {
+                Toast.makeText(this, R.string.save_failed, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, R.string.task_added, Toast.LENGTH_LONG).show();
+            }
+        } else {
+            int rowUpdated = getContentResolver().update(currentTaskUri, values, null, null);
+            if (rowUpdated == 0) {
+                Toast.makeText(this, R.string.save_failed, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, R.string.task_modified, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_edit_task, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        if (currentTaskUri == null) {
+            MenuItem menuItem = menu.findItem(R.id.delete_product);
+            menuItem.setVisible(false);
+        }
+
+        if (currentTaskUri != null) {
+            MenuItem menuItem = menu.findItem(R.id.saved_product);
+            menuItem.setIcon(R.drawable.ic_save_black_24dp);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.saved_product:
+                AddNewProduct();
+                finish();
+                return true;
+            case R.id.delete_product:
+                showDeleteConfirmationDialog();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        String[] projection = {
+                TaskContract.TaskEntry._ID,
+                TaskContract.TaskEntry.KEY_TASKNAME,
+                TaskContract.TaskEntry.KEY_STATUS};
+        return new CursorLoader(this,
+                currentTaskUri,
+                projection,
+                null,
+                null,
+                null);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+        if (cursor == null || cursor.getCount() < 1) {
+            return;
+        }
+
+        if (cursor.moveToFirst()) {
+            int nameColumnIndex = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_TASKNAME);
+            int statusColumnIndex = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_STATUS);
+
+            String name = cursor.getString(nameColumnIndex);
+            int status = cursor.getInt(statusColumnIndex);
+
+            taskEditText.setText(name);
+
+            Picasso.get().load(status)
+                    .placeholder(R.drawable.not_done)
+                    .fit()
+                    .into(taskStatusImageView);
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        taskEditText.setText("");
+    }
 }
