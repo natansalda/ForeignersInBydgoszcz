@@ -48,6 +48,10 @@ public class TaskCursorAdapter extends CursorAdapter {
 
         // Update views with attributes for the current product
         taskCheckBox.setText(taskName);
-        Picasso.get().load(R.drawable.not_done).into(statusImageView);
+        if (taskStatus == 0) {
+            Picasso.get().load(R.drawable.not_done).into(statusImageView);
+        } else {
+            Picasso.get().load(R.drawable.done).into(statusImageView);
+        }
     }
 }
