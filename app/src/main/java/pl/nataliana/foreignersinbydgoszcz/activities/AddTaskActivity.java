@@ -48,6 +48,17 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
         taskEditText = findViewById(R.id.editText);
         taskStatusImageView = findViewById(R.id.imageView_status);
 
+        Intent intent = getIntent();
+        currentTaskUri = intent.getData();
+        if (currentTaskUri == null) {
+            setTitle(getString(R.string.title_activity_new_task));
+            invalidateOptionsMenu();
+        } else {
+            setTitle(getString(R.string.title_activity_modify_task));
+            taskEditText.setHintTextColor(getResources().getColor(R.color.colorPrimaryDark));
+            getLoaderManager().initLoader(EXISTING_TASK_LOADER, null, this);
+        }
+
         taskStatusImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,17 +71,6 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
                 }
             }
         });
-
-        Intent intent = getIntent();
-        currentTaskUri = intent.getData();
-        if (currentTaskUri == null) {
-            setTitle(getString(R.string.title_activity_new_task));
-            invalidateOptionsMenu();
-        } else {
-            setTitle(getString(R.string.title_activity_modify_task));
-            taskEditText.setHintTextColor(getResources().getColor(R.color.colorPrimaryDark));
-            getLoaderManager().initLoader(EXISTING_TASK_LOADER, null, this);
-        }
     }
 
     private void showDeleteConfirmationDialog() {
@@ -142,17 +142,17 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
         cancelChangesDialog(discardButtonClickListener);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data != null) {
-        }
-        Uri mProductPhotoUri = data.getData();
-
-        Picasso.get().load(mProductPhotoUri)
-                .placeholder(R.drawable.not_done)
-                .fit()
-                .into(taskStatusImageView);
-    }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (data != null) {
+//        }
+//        Uri mProductPhotoUri = data.getData();
+//
+//        Picasso.get().load(mProductPhotoUri)
+//                .placeholder(R.drawable.not_done)
+//                .fit()
+//                .into(taskStatusImageView);
+//    }
 
     private void AddNewProduct() {
         String name = taskEditText.getText().toString();
@@ -246,17 +246,17 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
 
         if (cursor.moveToFirst()) {
             int nameColumnIndex = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_TASKNAME);
+            int statusColumnIndext = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_STATUS);
 
             String name = cursor.getString(nameColumnIndex);
-
             taskEditText.setText(name);
 
-            Picasso.get().load(currentTaskUri)
-                    .placeholder(R.drawable.done)
-                    .fit()
-                    .into(taskStatusImageView);
-
-            if (!isDone) {
+            if (statusColumnIndext == 1) {
+                Picasso.get().load(currentTaskUri)
+                        .placeholder(R.drawable.done)
+                        .fit()
+                        .into(taskStatusImageView);
+            } else {
                 Picasso.get().load(currentTaskUri)
                         .placeholder(R.drawable.not_done)
                         .fit()
