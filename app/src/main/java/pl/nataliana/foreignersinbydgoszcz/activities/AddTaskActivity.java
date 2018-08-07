@@ -36,8 +36,8 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
     private EditText taskEditText;
     private ImageView taskStatusImageView;
     private int rowsDeleted = 0;
-    private String currentImageUri = "no image";
     private boolean taskChange = false;
+    private boolean isDone = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +53,10 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
             public void onClick(View v) {
                 if (taskStatusImageView.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.done).getConstantState()) {
                     taskStatusImageView.setImageResource(R.drawable.not_done);
+                    isDone = false;
                 } else {
                     taskStatusImageView.setImageResource(R.drawable.done);
+                    isDone = true;
                 }
             }
         });
@@ -101,7 +103,7 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
                 Intent intent = new Intent(AddTaskActivity.this, TasksActivity.class);
                 startActivity(intent);
             } else {
-                Toast.makeText(this, R.string.task_deleted,  Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.task_deleted, Toast.LENGTH_SHORT).show();
             }
             finish();
         }
@@ -142,15 +144,14 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-            if (data != null) {
-            }
-            Uri mProductPhotoUri = data.getData();
-            currentImageUri = mProductPhotoUri.toString();
+        if (data != null) {
+        }
+        Uri mProductPhotoUri = data.getData();
 
-            Picasso.get().load(mProductPhotoUri)
-                    .placeholder(R.drawable.not_done)
-                    .fit()
-                    .into(taskStatusImageView);
+        Picasso.get().load(mProductPhotoUri)
+                .placeholder(R.drawable.not_done)
+                .fit()
+                .into(taskStatusImageView);
     }
 
     private void AddNewProduct() {
@@ -163,7 +164,11 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
 
         ContentValues values = new ContentValues();
         values.put(TaskContract.TaskEntry.KEY_TASKNAME, name);
-        values.put(TaskContract.TaskEntry.KEY_STATUS, 0);
+        if (!isDone) {
+            values.put(TaskContract.TaskEntry.KEY_STATUS, 0);
+        } else {
+            values.put(TaskContract.TaskEntry.KEY_STATUS, 1);
+        }
 
         if (currentTaskUri == null) {
             Uri insertedRow = getContentResolver().insert(TaskContract.TaskEntry.CONTENT_URI, values);
@@ -241,17 +246,22 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
 
         if (cursor.moveToFirst()) {
             int nameColumnIndex = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_TASKNAME);
-            int statusColumnIndex = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_STATUS);
 
             String name = cursor.getString(nameColumnIndex);
-//            currentTaskUri = Uri.parse(cursor.getString(statusColumnIndex));
 
             taskEditText.setText(name);
 
             Picasso.get().load(currentTaskUri)
-                    .placeholder(R.drawable.not_done)
+                    .placeholder(R.drawable.done)
                     .fit()
                     .into(taskStatusImageView);
+
+            if (!isDone) {
+                Picasso.get().load(currentTaskUri)
+                        .placeholder(R.drawable.not_done)
+                        .fit()
+                        .into(taskStatusImageView);
+            }
         }
     }
 
