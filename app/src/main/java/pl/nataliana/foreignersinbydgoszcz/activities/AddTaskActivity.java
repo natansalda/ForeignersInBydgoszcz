@@ -97,11 +97,11 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
         if (currentTaskUri != null) {
             int rowsDeleted = getContentResolver().delete(currentTaskUri, null, null);
             if (rowsDeleted == 0) {
-                Toast.makeText(this, R.string.task_deleted, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.task_not_deleted, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(AddTaskActivity.this, TasksActivity.class);
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "Task couldn't been deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.task_deleted,  Toast.LENGTH_SHORT).show();
             }
             finish();
         }
@@ -178,7 +178,7 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
                 Toast.makeText(this, R.string.save_failed, Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(this, R.string.task_modified, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, TasksActivity.class);
                 startActivity(intent);
             }
         }
@@ -244,7 +244,7 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
             int statusColumnIndex = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_STATUS);
 
             String name = cursor.getString(nameColumnIndex);
-            currentTaskUri = Uri.parse(cursor.getString(statusColumnIndex));
+//            currentTaskUri = Uri.parse(cursor.getString(statusColumnIndex));
 
             taskEditText.setText(name);
 

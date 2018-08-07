@@ -56,4 +56,5 @@
     <string name="task_added">Task successfully added</string>
     <string name="task_modified">Task successfully modified</string>
     <string name="save_task">Save task</string>
+    <string name="task_not_deleted">Task couldn\'t been deleted</string>
 </resources>
