@@ -30,6 +30,6 @@
         android:src="@drawable/ic_exposure_plus_1_black_24dp"
         app:backgroundTint="@color/colorPrimaryDark"
         app:borderWidth="0dp"
-        app:elevation="10dp"
+        app:elevation="@dimen/standard_elevation"
         app:fab_size="normal" />
 </RelativeLayout>

@@ -3,4 +3,5 @@
     <dimen name="standard_padding">4dp</dimen>
     <dimen name="big_padding">14dp</dimen>
     <dimen name="task_text_size">24sp</dimen>
+    <dimen name="standard_elevation">8dp</dimen>
 </resources>
