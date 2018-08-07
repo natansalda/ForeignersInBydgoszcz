@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/widget_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/widget_task_text"
+        android:layout_width="337dp"
+        android:layout_height="43dp"
+        android:layout_alignParentStart="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/new_task_name"
+        android:textSize="@dimen/task_text_size"
+        android:textColor="@color/colorPrimary" />
+
+    <ImageView
+        android:id="@+id/widget_task_status"
+        android:layout_width="46dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/not_done" />
+
+</RelativeLayout>
