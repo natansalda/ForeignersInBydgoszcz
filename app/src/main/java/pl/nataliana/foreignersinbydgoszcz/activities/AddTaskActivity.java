@@ -170,9 +170,7 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
             if (rowUpdated == 0) {
                 Toast.makeText(this, R.string.save_failed, Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, R.string.task_modified, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this, TasksActivity.class);
-                startActivity(intent);
+                finish();
             }
         }
     }
