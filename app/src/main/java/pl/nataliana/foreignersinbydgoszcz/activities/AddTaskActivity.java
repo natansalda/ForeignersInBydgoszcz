@@ -142,18 +142,6 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
         cancelChangesDialog(discardButtonClickListener);
     }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (data != null) {
-//        }
-//        Uri mProductPhotoUri = data.getData();
-//
-//        Picasso.get().load(mProductPhotoUri)
-//                .placeholder(R.drawable.not_done)
-//                .fit()
-//                .into(taskStatusImageView);
-//    }
-
     private void AddNewProduct() {
         String name = taskEditText.getText().toString();
 
@@ -246,12 +234,13 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
 
         if (cursor.moveToFirst()) {
             int nameColumnIndex = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_TASKNAME);
-            int statusColumnIndext = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_STATUS);
+            int statusColumnIndex = cursor.getColumnIndex(TaskContract.TaskEntry.KEY_STATUS);
 
             String name = cursor.getString(nameColumnIndex);
+            int status = cursor.getInt(statusColumnIndex);
             taskEditText.setText(name);
 
-            if (statusColumnIndext == 1) {
+            if (status == 1) {
                 Picasso.get().load(currentTaskUri)
                         .placeholder(R.drawable.done)
                         .fit()

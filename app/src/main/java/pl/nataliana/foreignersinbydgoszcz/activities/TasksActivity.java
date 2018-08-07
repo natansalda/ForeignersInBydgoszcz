@@ -47,7 +47,7 @@ public class TasksActivity extends AppCompatActivity implements LoaderManager.Lo
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount,
                                  int totalItemCount) {
-                fab.setSize(FloatingActionButton.SIZE_MINI);
+                fab.setSize(FloatingActionButton.SIZE_NORMAL);
             }
         });
 
