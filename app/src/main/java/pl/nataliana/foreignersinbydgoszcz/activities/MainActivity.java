@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
+import pl.nataliana.foreignersinbydgoszcz.widget.WidgetService;
 
 public class MainActivity extends AppCompatActivity {
 

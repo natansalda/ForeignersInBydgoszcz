@@ -27,6 +27,7 @@ import pl.nataliana.foreignersinbydgoszcz.R;
 import pl.nataliana.foreignersinbydgoszcz.database.TaskContract;
 import pl.nataliana.foreignersinbydgoszcz.database.TaskCursorAdapter;
 import pl.nataliana.foreignersinbydgoszcz.model.Task;
+import pl.nataliana.foreignersinbydgoszcz.widget.WidgetService;
 
 public class TasksActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -38,8 +39,8 @@ public class TasksActivity extends AppCompatActivity implements LoaderManager.Lo
         Intent intent = new Intent(packageContext, TasksActivity.class);
         intent.putExtra(BUNDLE_DATA, (Parcelable) task);
         return intent;
-
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
