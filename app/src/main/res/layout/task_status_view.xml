@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/checkBox"
@@ -12,8 +12,8 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:text="@string/new_task_name"
-        android:textSize="@dimen/task_text_size"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/task_text_size" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -21,6 +21,7 @@
         android:layout_height="45dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:contentDescription="@string/description_status_image"
         app:srcCompat="@drawable/not_done" />
 
 </RelativeLayout>

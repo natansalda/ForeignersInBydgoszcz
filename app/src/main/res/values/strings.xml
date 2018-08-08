@@ -57,4 +57,6 @@
     <string name="task_modified">Task successfully modified</string>
     <string name="save_task">Save task</string>
     <string name="task_not_deleted">Task couldn\'t been deleted</string>
+    <string name="this_is_a_button_to_add_a_new_task">This is a button to add a new task</string>
+    <string name="description_status_image">This icon shows status of the task - if it is done or not done</string>
 </resources>

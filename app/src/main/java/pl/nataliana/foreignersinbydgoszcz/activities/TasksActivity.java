@@ -11,6 +11,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -30,7 +31,15 @@ import pl.nataliana.foreignersinbydgoszcz.model.Task;
 public class TasksActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     TaskCursorAdapter mCursorAdapter;
+    private static final String BUNDLE_DATA = "pl.nataliana.foreignersinbydgoszcz.data";
 
+
+    public static Intent myIntent(Context packageContext, Task task) {
+        Intent intent = new Intent(packageContext, TasksActivity.class);
+        intent.putExtra(BUNDLE_DATA, (Parcelable) task);
+        return intent;
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

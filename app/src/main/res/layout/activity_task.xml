@@ -27,6 +27,7 @@
         style="@style/FabButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:contentDescription="@string/this_is_a_button_to_add_a_new_task"
         android:src="@drawable/ic_exposure_plus_1_black_24dp"
         app:backgroundTint="@color/colorPrimaryDark"
         app:borderWidth="0dp"

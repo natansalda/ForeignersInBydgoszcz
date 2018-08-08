@@ -23,5 +23,6 @@
         android:layout_height="45dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:contentDescription="@string/description_status_image"
         app:srcCompat="@drawable/not_done" />
 </RelativeLayout>

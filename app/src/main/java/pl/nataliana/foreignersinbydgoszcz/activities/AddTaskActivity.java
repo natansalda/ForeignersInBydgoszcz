@@ -1,6 +1,5 @@
 package pl.nataliana.foreignersinbydgoszcz.activities;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.app.LoaderManager;
 import android.content.ContentValues;
@@ -8,23 +7,18 @@ import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
-
-import java.io.File;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
 import pl.nataliana.foreignersinbydgoszcz.database.TaskContract;
@@ -142,7 +136,7 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
         cancelChangesDialog(discardButtonClickListener);
     }
 
-    private void AddNewProduct() {
+    private void AddNewTask() {
         String name = taskEditText.getText().toString();
 
         if (name.isEmpty()) {
@@ -200,7 +194,7 @@ public class AddTaskActivity extends AppCompatActivity implements LoaderManager.
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.saved_product:
-                AddNewProduct();
+                AddNewTask();
                 finish();
                 return true;
             case R.id.delete_product:
