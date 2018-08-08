@@ -19,7 +19,6 @@ public class WidgetProvider extends AppWidgetProvider {
                                 Task task, int appWidgetId) {
 
         Intent intent = TasksActivity.myIntent(context, task);
-
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -33,6 +32,7 @@ public class WidgetProvider extends AppWidgetProvider {
     public static void updateTaskWidgets(Context context, AppWidgetManager appWidgetManager,
                                          Task recipe, int[] appWidgetIds) {
         for (int appWidgetId : appWidgetIds) {
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.widget_list_view);
             updateAppWidget(context, appWidgetManager, recipe, appWidgetId);
         }
     }
