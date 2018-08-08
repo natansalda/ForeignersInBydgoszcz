@@ -3,6 +3,7 @@ package pl.nataliana.foreignersinbydgoszcz.activities;
 import android.app.AlertDialog;
 import android.app.LoaderManager;
 import android.content.ContentUris;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 import pl.nataliana.foreignersinbydgoszcz.R;
 import pl.nataliana.foreignersinbydgoszcz.database.TaskContract;
 import pl.nataliana.foreignersinbydgoszcz.database.TaskCursorAdapter;
+import pl.nataliana.foreignersinbydgoszcz.model.Task;
 
 public class TasksActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
