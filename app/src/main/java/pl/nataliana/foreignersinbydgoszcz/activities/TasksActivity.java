@@ -27,7 +27,6 @@ import pl.nataliana.foreignersinbydgoszcz.R;
 import pl.nataliana.foreignersinbydgoszcz.database.TaskContract;
 import pl.nataliana.foreignersinbydgoszcz.database.TaskCursorAdapter;
 import pl.nataliana.foreignersinbydgoszcz.model.Task;
-import pl.nataliana.foreignersinbydgoszcz.widget.WidgetService;
 
 public class TasksActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 

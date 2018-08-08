@@ -49,7 +49,7 @@ public class FormalitiesActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        listOfOffices = new ArrayList<Formal>();
+        listOfOffices = new ArrayList<>();
         for (int i = 0; i < FormalData.nameArray.length; i++) {
             listOfOffices.add(new Formal(
                     FormalData.id_[i],
@@ -80,7 +80,6 @@ public class FormalitiesActivity extends AppCompatActivity {
         // In this version of the app onClick is not used - planning to add this later
         @Override
         public void onClick(View v) {
-            return;
         }
     }
 

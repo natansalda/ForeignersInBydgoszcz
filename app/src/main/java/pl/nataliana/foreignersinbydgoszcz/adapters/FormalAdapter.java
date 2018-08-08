@@ -1,19 +1,16 @@
 package pl.nataliana.foreignersinbydgoszcz.adapters;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
 import pl.nataliana.foreignersinbydgoszcz.model.Formal;
-import pl.nataliana.foreignersinbydgoszcz.model.Place;
 
 import static pl.nataliana.foreignersinbydgoszcz.activities.FormalitiesActivity.myOnClickListener;
 
@@ -39,6 +36,7 @@ public class FormalAdapter extends RecyclerView.Adapter<FormalAdapter.MyViewHold
         this.dataSet = data;
     }
 
+    @NonNull
     @Override
     public FormalAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
                                                         int viewType) {
@@ -47,8 +45,7 @@ public class FormalAdapter extends RecyclerView.Adapter<FormalAdapter.MyViewHold
 
         view.setOnClickListener(myOnClickListener);
 
-        FormalAdapter.MyViewHolder myViewHolder = new FormalAdapter.MyViewHolder(view);
-        return myViewHolder;
+        return new MyViewHolder(view);
     }
 
     @Override

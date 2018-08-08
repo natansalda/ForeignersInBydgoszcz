@@ -5,11 +5,9 @@
     <item android:id="@+id/download"
         android:icon="@drawable/ic_check"
         android:title="@string/download_file"
-        android:iconTint="@color/colorIcons"
         app:showAsAction="ifRoom"/>
     <item android:id="@+id/info"
         android:icon="@drawable/ic_info"
         android:title="@string/info"
-        android:iconTint="@color/colorIcons"
         app:showAsAction="ifRoom"/>
 </menu>

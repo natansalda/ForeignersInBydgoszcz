@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
-import pl.nataliana.foreignersinbydgoszcz.widget.WidgetService;
 
 public class MainActivity extends AppCompatActivity {
 

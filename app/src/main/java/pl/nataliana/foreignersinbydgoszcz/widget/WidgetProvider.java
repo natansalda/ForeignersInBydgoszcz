@@ -7,8 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
-import java.util.List;
-
 import pl.nataliana.foreignersinbydgoszcz.R;
 import pl.nataliana.foreignersinbydgoszcz.activities.TasksActivity;
 import pl.nataliana.foreignersinbydgoszcz.model.Task;

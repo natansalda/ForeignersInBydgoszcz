@@ -1,17 +1,16 @@
 package pl.nataliana.foreignersinbydgoszcz.adapters;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pl.nataliana.foreignersinbydgoszcz.R;
-import pl.nataliana.foreignersinbydgoszcz.model.Place;
 import pl.nataliana.foreignersinbydgoszcz.model.Task;
 
 public class TaskAdapter extends ArrayAdapter<Task>
@@ -27,15 +26,16 @@ public class TaskAdapter extends ArrayAdapter<Task>
         this.context=context;
     }
 
+    @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.task_status_view, parent, false);
-        CheckBox chk=(CheckBox)rowView.findViewById(R.id.checkBox);
-        Task current=taskList.get(position);
+        CheckBox chk = rowView.findViewById(R.id.checkBox);
+        Task current = taskList.get(position);
         chk.setText(current.getTaskName());
-        chk.setChecked(current.getStatus()==1?true:false);
+        chk.setChecked(current.getStatus()==1);
 
         return rowView;
     }

@@ -9,7 +9,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -42,7 +41,7 @@ public class PlacesActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        listOfPlaces = new ArrayList<Place>();
+        listOfPlaces = new ArrayList<>();
         for (int i = 0; i < PlacesData.nameArray.length; i++) {
             listOfPlaces.add(new Place(
                     PlacesData.id_[i],
@@ -70,7 +69,6 @@ public class PlacesActivity extends AppCompatActivity {
             addToWidget(v);
         }
         private void addToWidget(View v) {
-            return;
         }
     }
 
