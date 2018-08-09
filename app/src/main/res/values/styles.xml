@@ -42,6 +42,21 @@
     </style>
 
     <style name="TextEmptyView">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginRight">16dp</item>
+    <item name="android:layout_marginLeft">16dp</item>
+    <item name="android:textAlignment">center</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:fontFamily">sans-serif-light</item>
+    <item name="android:textAppearance">
+        @style/Base.TextAppearance.AppCompat.SearchResult.Title
+    </item>
+    <item name="android:textColor">@color/colorPrimaryDark</item>
+    <item name="android:text">@string/text_empty_view</item>
+</style>
+
+    <style name="WidgetTextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginRight">16dp</item>
@@ -53,7 +68,6 @@
             @style/Base.TextAppearance.AppCompat.SearchResult.Title
         </item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
-        <item name="android:text">@string/text_empty_view</item>
     </style>
 
     <style name="FabButton">

@@ -29,7 +29,7 @@ public class WidgetProvider extends AppWidgetProvider {
     public static void updateTaskWidgets(Context context, AppWidgetManager appWidgetManager,
                                          Task task, int[] appWidgetIds) {
         for (int appWidgetId : appWidgetIds) {
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.widget_list_view);
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.widget_text_view);
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
     }

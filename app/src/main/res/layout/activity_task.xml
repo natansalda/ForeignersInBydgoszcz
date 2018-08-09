@@ -18,7 +18,7 @@
         style="@style/RelativeDefault">
 
         <TextView
-            android:id="@+id/texto_empty_view"
+            android:id="@+id/widget_text_view"
             style="@style/TextEmptyView" />
     </RelativeLayout>
 
