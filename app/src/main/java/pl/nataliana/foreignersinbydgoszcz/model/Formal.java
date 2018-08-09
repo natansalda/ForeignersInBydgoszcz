@@ -3,11 +3,11 @@ package pl.nataliana.foreignersinbydgoszcz.model;
 public class Formal {
 
     private long id;
-    public String name;
-    public String description;
-    public String address;
+    public int name;
+    public int description;
+    public int address;
 
-    public Formal(long id, String name, String description, String address) {
+    public Formal(long id, int name, int description, int address) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -18,15 +18,15 @@ public class Formal {
         return id;
     }
 
-    public String getName() {
+    public int getName() {
         return name;
     }
 
-    public String getDescription() {
+    public int getDescription() {
         return description;
     }
 
-    public String getAddress() {
+    public int getAddress() {
         return address;
     }
 }
