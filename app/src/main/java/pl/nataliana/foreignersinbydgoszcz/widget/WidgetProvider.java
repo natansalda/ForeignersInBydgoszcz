@@ -14,27 +14,6 @@ import pl.nataliana.foreignersinbydgoszcz.model.Task;
 
 public class WidgetProvider extends AppWidgetProvider {
 
-//    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-//                                     Task task, int appWidgetId) {
-
-//        Intent intent = TasksActivity.myIntent(context, task);
-//        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent,
-//                PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-//        views.removeAllViews(R.id.widget_list_view);
-//        views.setOnClickPendingIntent(R.id.task_widget_holder, pendingIntent);
-
-//        Intent listViewIntent = new Intent(context, WidgetService.class);
-//        listViewIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-//        listViewIntent.setData(Uri.parse(listViewIntent.toUri(Intent.URI_INTENT_SCHEME)));
-//        RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-//        widget.setRemoteAdapter(R.id.widget_list_view, listViewIntent);
-
-//        appWidgetManager.updateAppWidget(appWidgetId, views);
-//        appWidgetManager.updateAppWidget(appWidgetId, widget);
-//    }
-
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
 
         Intent intent = new Intent(context, TasksActivity.class);
@@ -42,7 +21,6 @@ public class WidgetProvider extends AppWidgetProvider {
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-        //views.removeAllViews(R.id.widget_list_view);
         views.setOnClickPendingIntent(R.id.task_widget_holder, pendingIntent);
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
